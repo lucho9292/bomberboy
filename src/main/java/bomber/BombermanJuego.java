@@ -2,7 +2,8 @@ package bomber;
 
 import java.awt.Dimension;
 
-import arkanoid.ArkanoidJuego;
+
+
 
 import com.uqbar.vainilla.DesktopGameLauncher;
 import com.uqbar.vainilla.Game;
@@ -12,7 +13,7 @@ public class BombermanJuego extends Game {
 	
 	//Main method
 	public static void main(String[] args) {
-		new DesktopGameLauncher(new ArkanoidJuego()).launch();
+		new DesktopGameLauncher(new BombermanJuego()).launch();
 	}
 	
 	@Override
@@ -23,20 +24,22 @@ public class BombermanJuego extends Game {
 
 	@Override
 	protected void setUpScenes() {
-		// TODO Auto-generated method stub
-
+		//Creo una escena nueva
+		BombermanGameScene scene = new BombermanGameScene();
+		
+		this.setCurrentScene(scene);
 	}
 
 	@Override
 	public Dimension getDisplaySize() {
 		// TODO Auto-generated method stub
-		return null;
+		return new Dimension(800, 600);
 	}
 
 	@Override
 	public String getTitle() {
 		// TODO Auto-generated method stub
-		return null;
+		return "Don Pepe y los globos";
 	}
 
 }
