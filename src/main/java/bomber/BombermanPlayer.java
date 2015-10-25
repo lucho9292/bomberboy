@@ -10,8 +10,8 @@ import java.awt.Color;
 
 public class BombermanPlayer extends GameComponent<BombermanGameScene> {
 	
-	public BombermanPlayer(){
-		this.setAppearance(new Rectangle(Color.BLUE, 28, 65));
+	public BombermanPlayer(Color c){
+		this.setAppearance(new Rectangle(c, 28, 65));
 		//this.setAppearance(Sprite.fromImage("\\png\\ff3warrior.png").scale(0.8));
 		this.setX(200);
 		this.setY(200);
