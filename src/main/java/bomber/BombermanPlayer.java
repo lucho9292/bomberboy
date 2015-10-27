@@ -18,12 +18,20 @@ public class BombermanPlayer extends GameComponent<BombermanGameScene> {
 		
 	}
 	
-	public void dropBomb(){
+	public void dropBomb(DeltaState ds){
 		//crear una bomba en la posicion actual
+		Bomba b = new Bomba(this.getX(),this.getY());
+		this.getScene().addComponent(b);
 	}
 	
-	//Keyboard movements
+	
 	public void update(DeltaState deltaState) {
+		
+		if (deltaState.isKeyPressed(Key.A)){
+			this.dropBomb(deltaState);
+		}
+		
+		//Keyboard movements
 		if (deltaState.isKeyPressed(Key.LEFT)){
 			this.setX(this.getX()-30);
 		}
