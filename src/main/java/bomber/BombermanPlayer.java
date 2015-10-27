@@ -18,6 +18,10 @@ public class BombermanPlayer extends GameComponent<BombermanGameScene> {
 		
 	}
 	
+	public void dropBomb(){
+		//crear una bomba en la posicion actual
+	}
+	
 	//Keyboard movements
 	public void update(DeltaState deltaState) {
 		if (deltaState.isKeyPressed(Key.LEFT)){
