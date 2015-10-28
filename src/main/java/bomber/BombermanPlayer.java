@@ -24,7 +24,13 @@ public class BombermanPlayer extends GameComponent<BombermanGameScene> {
 		this.getScene().addComponent(b);
 	}
 	
+	@Override
+	public void onSceneActivated(){
+		this.setX(30);
+		this.setY(30);
+	}
 	
+	@Override
 	public void update(DeltaState deltaState) {
 		
 		if (deltaState.isKeyPressed(Key.A)){
