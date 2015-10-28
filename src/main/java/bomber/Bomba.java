@@ -15,12 +15,14 @@ public class Bomba extends GameComponent<BombermanGameScene> {
 		this.setX(x);
 		this.setY(y);
 		this.setAppearance(new Circle(Color.BLACK, 28));
+		//la bomba conoce al jugador
 		//this.explotar();
 	}
 	
 	public void explotar(){
 		this.destroy();
 		destruirTiles();
+		//avisar al jugador que exploto
 	}
 	
 	public void destruirTiles(){
