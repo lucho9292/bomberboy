@@ -21,7 +21,7 @@ public class Bomba extends GameComponent<BombermanGameScene> {
 	
 	public void explotar(){
 		this.destroy();
-		destruirTiles();
+		//;
 		//avisar al jugador que exploto
 	}
 	
