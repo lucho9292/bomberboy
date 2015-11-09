@@ -21,12 +21,8 @@ public class Bomba extends GameComponent<BombermanGameScene> {
 	
 	public void explotar(){
 		this.destroy();
-		//;
 		//avisar al jugador que exploto
-	}
-	
-	public void destruirTiles(){
-		//TODO
+		//this.spawnFire(this.x,this.y)
 	}
 	
 	public void update(DeltaState ds){
