@@ -10,11 +10,8 @@ import java.awt.Color;
 public class BombermanPlayer extends RichGameComponent {
 	
 	public BombermanPlayer(Color c){
-		this.setAppearance(new Rectangle(c, 30, 30));
-		//this.setAppearance(Sprite.fromImage("\\png\\ff3warrior.png").scale(0.8));
-		this.setX(200);
-		this.setY(200);
-		
+		this.setAppearance(new Rectangle(c, rate, rate));
+		//this.setAppearance(Sprite.fromImage("\\png\\ff3warrior.png").scale(0.8));		
 	}
 	
 	public void dropBomb(DeltaState ds){
@@ -25,8 +22,8 @@ public class BombermanPlayer extends RichGameComponent {
 	
 	@Override
 	public void onSceneActivated(){
-		this.setX(30);
-		this.setY(30);
+		this.setX(rate);
+		this.setY(rate);
 	}
 	
 	@Override
