@@ -2,26 +2,45 @@ package bomber;
 
 
 import java.awt.Color;
+import java.util.ArrayList;
 
 import com.uqbar.vainilla.GameScene;
 
 public class BombermanGameScene extends GameScene {
 	
 	private BombermanPlayer pj = new BombermanPlayer(Color.RED);
-	private Pared pared1 = new Pared(true, 0, 0);
-	private Pared pared2 = new Pared(false,0,0);
-	private Pared pared3 = new Pared(true,770,0);
-	private Pared pared4 = new Pared(false,0,550);
-	//monstruos
+	public Pared pared1 = new Pared(true, 0, 0);
+	public Pared pared2 = new Pared(false, 0, 0);
+	public Pared pared3 = new Pared(true,770,0);
+	public Pared pared4 = new Pared(false,0,550);
+	
+	
 	
 	public BombermanGameScene(){
 		this.addComponent(pj);
+		this.createVerticalWall(4, 4, 10);
+		this.createHorizontalWall(6,6,2);
 		this.addComponent(pared1);
 		this.addComponent(pared2);
 		this.addComponent(pared3);
 		this.addComponent(pared4);
-		this.createVerticalWall(4, 4, 10);
-		this.createHorizontalWall(6,6,2);
+	}
+	
+//	public void paredes(){
+//		Pared pared1 = new Pared(true, 0, 0);
+//		Pared pared2 = new Pared(false,0,0);
+//		Pared pared3 = new Pared(true,770,0);
+//		Pared pared4 = new Pared(false,0,550);
+//
+//	}
+	
+	public ArrayList<Pared> getParedes(){
+		ArrayList<Pared> ret = new ArrayList<>();
+		ret.add(pared1);
+		ret.add(pared2);
+		ret.add(pared3);
+		ret.add(pared4);
+		return ret;
 	}
 	
 	public void createVerticalWall(double x, double y,int cant){

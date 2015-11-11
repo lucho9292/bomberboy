@@ -2,7 +2,6 @@ package bomber;
 
 import java.awt.Color;
 
-import com.uqbar.vainilla.GameComponent;
 import com.uqbar.vainilla.appearances.Rectangle;
 
 public class Tile extends RichGameComponent {
