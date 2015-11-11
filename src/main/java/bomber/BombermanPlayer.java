@@ -54,6 +54,7 @@ public class BombermanPlayer extends RichGameComponent {
 			this.setX(this.getX());
 			this.setY(this.getY());
 		}
+
 			
 	}
 	

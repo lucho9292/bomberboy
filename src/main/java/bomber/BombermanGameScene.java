@@ -13,6 +13,8 @@ public class BombermanGameScene extends GameScene {
 	public Pared pared2 = new Pared(false, 0, 0);
 	public Pared pared3 = new Pared(true,770,0);
 	public Pared pared4 = new Pared(false,0,550);
+	//Array de dos dimensiones
+	//private Tile[][] grid = new Tile[5][10];
 	
 	
 	
