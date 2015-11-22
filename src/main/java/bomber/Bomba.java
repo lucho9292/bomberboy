@@ -28,10 +28,10 @@ public class Bomba extends RichGameComponent {
 	
 	public void spawnFire(){
 		Fuego f1 = new Fuego(this.getX(),this.getY());
-		Fuego f2 = new Fuego(this.getX()+rate,this.getY());
-		Fuego f3 = new Fuego(this.getX()-rate,this.getY());
-		Fuego f4 = new Fuego(this.getX(),this.getY()+rate);
-		Fuego f5 = new Fuego(this.getX(),this.getY()-rate);
+		Fuego f2 = new Fuego(this.getX()+w,this.getY());
+		Fuego f3 = new Fuego(this.getX()-w,this.getY());
+		Fuego f4 = new Fuego(this.getX(),this.getY()+h);
+		Fuego f5 = new Fuego(this.getX(),this.getY()-h);
 		this.getScene().addComponent(f1);
 		this.getScene().addComponent(f2);
 		this.getScene().addComponent(f3);

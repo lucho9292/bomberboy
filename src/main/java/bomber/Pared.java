@@ -9,8 +9,8 @@ public class Pared extends GameComponent<BombermanGameScene> {
 	public Pared(boolean bool, double x, double y){
 		//el boolean indica la orientacion de la pared
 		if (bool) 
-			{this.setAppearance(new Rectangle(Color.BLACK,30,600));}
-			else {this.setAppearance(new Rectangle(Color.BLACK,800,30));}
+			{this.setAppearance(new Rectangle(Color.BLACK,53,598));}
+			else {this.setAppearance(new Rectangle(Color.BLACK,795,46));}
 		this.setX(x);
 		this.setY(y);
 	}

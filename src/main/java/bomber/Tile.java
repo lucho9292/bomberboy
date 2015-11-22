@@ -9,10 +9,10 @@ public class Tile extends RichGameComponent {
 	private boolean rompible = false;
 	
 	public Tile(boolean rompible, double x, double y){
-		this.setAppearance(new Rectangle(Color.DARK_GRAY, rate, rate));
+		this.setAppearance(new Rectangle(Color.DARK_GRAY, w, h));
 		this.rompible = rompible;
-		this.setX(x*rate);
-		this.setY(y*rate);
+		this.setX(x*w);
+		this.setY(y*h);
 	}
 	
 	public boolean esRompible(){

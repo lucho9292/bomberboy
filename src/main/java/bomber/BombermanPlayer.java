@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class BombermanPlayer extends RichGameComponent {
 	
 	public BombermanPlayer(Color c){
-		this.setAppearance(new Rectangle(c, rate, rate));
+		this.setAppearance(new Rectangle(c, w, h));
 		//this.setAppearance(Sprite.fromImage("\\png\\ff3warrior.png").scale(0.8));		
 	}
 	
@@ -24,8 +24,8 @@ public class BombermanPlayer extends RichGameComponent {
 	
 	@Override
 	public void onSceneActivated(){
-		this.setX(rate);
-		this.setY(rate);
+		this.setX(w);
+		this.setY(h);
 	}
 	
 	@Override
@@ -38,16 +38,16 @@ public class BombermanPlayer extends RichGameComponent {
 		if (!(this.colisionaConParedes(this.getScene().getParedes()))){
 			//Keyboard movements
 			if (deltaState.isKeyPressed(Key.LEFT)){
-				this.setX(this.getX()-rate);
+				this.setX(this.getX()-w);
 			}
 			if (deltaState.isKeyPressed(Key.RIGHT)){
-				this.setX(this.getX()+rate);
+				this.setX(this.getX()+w);
 			}
 			if (deltaState.isKeyPressed(Key.UP)){
-				this.setY(this.getY()-rate);
+				this.setY(this.getY()-h);
 			}
 			if (deltaState.isKeyPressed(Key.DOWN)){
-				this.setY(this.getY()+rate);
+				this.setY(this.getY()+h);
 			}
 		}
 		else{
@@ -60,16 +60,16 @@ public class BombermanPlayer extends RichGameComponent {
 	
 	private boolean colisionaConParedVertical(Pared p){
 		return CollisionDetector.INSTANCE.collidesRectAgainstRect(
-				this.getX(), this.getY(), rate, rate,
-				p.getX(), p.getY(), rate, 600);
+				this.getX(), this.getY(), w, h,
+				p.getX(), p.getY(), w, 600);
 				
 				
 	}
 	
 	private boolean colisionaConParedHorizontal(Pared p){
 		return CollisionDetector.INSTANCE.collidesRectAgainstRect(
-				this.getX(), this.getY(), rate, rate,
-				p.getX(), p.getY(), 800, rate);
+				this.getX(), this.getY(), w, h,
+				p.getX(), p.getY(), 800, h);
 				
 				
 	}
