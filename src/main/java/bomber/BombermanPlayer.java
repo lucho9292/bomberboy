@@ -35,7 +35,7 @@ public class BombermanPlayer extends RichGameComponent {
 			this.dropBomb(deltaState);
 		}
 		
-		if (!(this.colisionaConParedes(this.getScene().getParedes()))){
+//		if (!(this.colisionaConParedes(this.getScene().getParedes()))){
 			//Keyboard movements
 			if (deltaState.isKeyPressed(Key.LEFT)){
 				this.setX(this.getX()-w);
@@ -49,16 +49,16 @@ public class BombermanPlayer extends RichGameComponent {
 			if (deltaState.isKeyPressed(Key.DOWN)){
 				this.setY(this.getY()+h);
 			}
-		}
-		else{
-			this.setX(this.getX());
-			this.setY(this.getY());
-		}
+//		}
+//		else{
+//			this.setX(this.getX());
+//			this.setY(this.getY());
+//		}
 
 			
 	}
 	
-	private boolean colisionaConParedVertical(Pared p){
+	private boolean colisionaConParedVertical(SolidBlock p){
 		return CollisionDetector.INSTANCE.collidesRectAgainstRect(
 				this.getX(), this.getY(), w, h,
 				p.getX(), p.getY(), w, 600);
@@ -66,7 +66,7 @@ public class BombermanPlayer extends RichGameComponent {
 				
 	}
 	
-	private boolean colisionaConParedHorizontal(Pared p){
+	private boolean colisionaConParedHorizontal(SolidBlock p){
 		return CollisionDetector.INSTANCE.collidesRectAgainstRect(
 				this.getX(), this.getY(), w, h,
 				p.getX(), p.getY(), 800, h);
@@ -74,18 +74,17 @@ public class BombermanPlayer extends RichGameComponent {
 				
 	}
 	
-	private boolean colisionaConParedes(ArrayList<Pared> ps){
-//		boolean ret = false;
-//		ret = ret ||
-//				this.colisionaConPared(this.getScene().pared1) ||
-//				this.colisionaConPared(this.getScene().pared2) ||
-//				this.colisionaConPared(this.getScene().pared3) ||
-//				this.colisionaConPared(this.getScene().pared4);
-//		return ret;
-		return (this.colisionaConParedVertical(this.getScene().pared1) 
-		|| this.colisionaConParedHorizontal(this.getScene().pared2)
-		|| this.colisionaConParedVertical(this.getScene().pared3)
-		|| this.colisionaConParedHorizontal(this.getScene().pared4));
-	}
+//	private boolean colisionaConParedes(ArrayList<SolidBlock> ps){
+////		boolean ret = false;
+////		ret = ret ||
+////				this.colisionaConPared(this.getScene().pared1) ||
+////				this.colisionaConPared(this.getScene().pared2) ||
+////				this.colisionaConPared(this.getScene().pared3) ||
+////				this.colisionaConPared(this.getScene().pared4);
+////		return ret;
+//		return (this.colisionaConParedVertical(this.getScene().pared1) 
+//		|| this.colisionaConParedVertical(this.getScene().pared3)
+//		|| this.colisionaConParedHorizontal(this.getScene().pared4));
+//	}
 
 }
