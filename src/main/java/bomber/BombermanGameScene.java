@@ -6,10 +6,14 @@ import com.uqbar.vainilla.GameScene;
 
 public class BombermanGameScene extends GameScene {//TODO ponerle amor para que sea mas elegante
 	
+	private TileMap map = new TileMap(4,4);
+	
 	public BombermanGameScene() {
 		addComponent(new BombermanPlayer(Color.RED));
 		buildFieldLimits();
 		buildFieldObstacle();
+		map.addAllTiles(this, 4, 4);
+		
 	}
 
 	private void buildWAll(boolean vertical, int x, int y, int length) {

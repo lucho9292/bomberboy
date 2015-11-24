@@ -9,16 +9,17 @@ import java.awt.Color;
 
 public class TileAppearrence<Tile> implements Appearance {
 	
-	private int tileSize = 30;
+	private int xSize = 53;
+	private int ySize = 46;
 
 	@Override
 	public double getWidth() {
-		return tileSize;
+		return xSize;
 	}
 
 	@Override
 	public double getHeight() {
-		return tileSize;
+		return ySize;
 	}
 
 	@Override
@@ -31,8 +32,6 @@ public class TileAppearrence<Tile> implements Appearance {
 
 	@Override
 	public void update(double delta) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
@@ -40,9 +39,10 @@ public class TileAppearrence<Tile> implements Appearance {
 		int x = (int)component.getX();
 		int y = (int)component.getY();
 		graphics.setColor(Color.BLACK);
-		graphics.drawRect(x, y, tileSize, tileSize);
+		graphics.drawRect(x, y, xSize, ySize);
 		//graphics.setColor(getDrawColor());
-		
+		graphics.fillRect(x, y, xSize - 1, ySize - 1);
+
 	}
 
 }
