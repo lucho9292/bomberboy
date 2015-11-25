@@ -12,7 +12,7 @@ public class BombermanGameScene extends GameScene {//TODO ponerle amor para que 
 		addComponent(new BombermanPlayer(Color.RED));
 		buildFieldLimits();
 		buildFieldObstacle();
-		map.addAllTiles(this, 4, 4);
+		//map.addAllTiles(this, 4, 4);
 		
 	}
 

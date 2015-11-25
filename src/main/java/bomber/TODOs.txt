@@ -1,0 +1,23 @@
+-----------TODOs---------------------
+
+-estados del jugador
+
+-colisiones
+--el fuego contra todo
+--el jugador contra paredes y bombas*
+
+-implementar bloqes destructibles
+
+-tunear los controles(puede usarse vectores)
+
+-suavizar el desplazamiento del jugador
+--luego alineamiento 
+
+-agregar informacion para los powerups al jugador
+--y a la bomba para saber cuantos fuegos poner
+
+-intentar poner tiles.
+
+-controles de segundo jugador(abstraer en una especie de player strategy)
+
+--los powerus son todos iguaes
