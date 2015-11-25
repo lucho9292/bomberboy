@@ -21,3 +21,8 @@
 -controles de segundo jugador(abstraer en una especie de player strategy)
 
 --los powerus son todos iguaes
+
+-generacion de bloques destructibles
+--recomendacion: utilizar "fuerza bruta" en todos los lugares posibles donde pueden haber bloques destructibles
+--recorrer todo el mapa y tirar un random alto y si da true 
+--poner el bloque
