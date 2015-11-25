@@ -41,7 +41,7 @@ public class TileAppearrence<Tile> implements Appearance {
 		graphics.setColor(Color.BLACK);
 		graphics.drawRect(x, y, xSize, ySize);
 		//graphics.setColor(getDrawColor());
-		graphics.fillRect(x, y, xSize - 1, ySize - 1);
+		graphics.fillRect(x - 1, y -1 , xSize - 1, ySize - 1);
 
 	}
 
