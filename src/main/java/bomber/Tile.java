@@ -1,6 +1,8 @@
 package bomber;
 
 
+import java.awt.Graphics2D;
+
 import com.uqbar.vainilla.GameComponent;
 
 public class Tile extends RichGameComponent {
@@ -22,11 +24,12 @@ public class Tile extends RichGameComponent {
 	
 	public void agregarDestructibleBlock(DestructibleBlock b){
 		this.contenido = b;
+		this.setAppearance(this.verContenido().getAppearance());
 	}
 	
 	public void agregarSolidBlock(SolidBlock b){
 		this.contenido = b;
+		this.setAppearance(this.verContenido().getAppearance());
 	}
-	
-	
+		
 }

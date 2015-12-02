@@ -21,7 +21,8 @@ public class TileMap {
 		}
 	}
 	
-	public void addTile(BombermanGameScene scene, int x, int y){
+	public void addTile(BombermanGameScene scene, Tile t, int x, int y){
+		map[x][y] = t;
 		scene.addComponent(map[x][y]);
 	}
 	
