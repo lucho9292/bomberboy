@@ -10,7 +10,7 @@ public class Tile extends RichGameComponent {
 
 	
 	public Tile(double x, double y){
-		this.setAppearance(new TileAppearrence<Tile>());
+		//this.setAppearance(new TileAppearrence<Tile>());
 		this.setX(x*w);
 		this.setY(y*h);
 		
@@ -19,4 +19,14 @@ public class Tile extends RichGameComponent {
 	public GameComponent<BombermanGameScene> verContenido(){
 		return contenido;
 	}
+	
+	public void agregarDestructibleBlock(DestructibleBlock b){
+		this.contenido = b;
+	}
+	
+	public void agregarSolidBlock(SolidBlock b){
+		this.contenido = b;
+	}
+	
+	
 }

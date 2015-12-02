@@ -20,4 +20,12 @@ public class TileMap {
 			}
 		}
 	}
+	
+	public void addTile(BombermanGameScene scene, int x, int y){
+		scene.addComponent(map[x][y]);
+	}
+	
+	public Tile getTile(int i, int j){
+		return map[i][j];
+	}
 }
