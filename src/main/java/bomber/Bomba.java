@@ -18,6 +18,10 @@ public class Bomba extends RichGameComponent {
 		//this.explotar();
 	}
 	
+	public Bomba(){
+		this.setAppearance(new Circle(Color.BLACK, 28));
+	}
+	
 	public void explotar(){
 		
 		this.spawnFire();

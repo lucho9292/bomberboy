@@ -15,43 +15,77 @@ public class BombermanGameScene extends GameScene {//TODO ponerle amor para que 
 //		addComponent(new DestructibleBlock(742, 552));
 		map = new TileMap(15,13);
 		map.addAllTiles(this, 15, 13);
-//		Tile t = new Tile(4,4);
-//		t.agregarSolidBlock(new SolidBlock(40,40));
-//		map.addTile(this,t, 4, 4);
-		//map.getTile(1,1).agregarSolidBlock(new SolidBlock());
-		buildWalls();
-		intermitentBlocks(2, 2, 12, 10);
-		System.out.println("el tile: " + map.getTile(4,4) + "  <---");
-		System.out.println("coordenadas del tile: " + map.getTile(4,4).getX() + "," + map.getTile(4,4).getY());
-		System.out.println("el bloque: " + map.getTile(4, 4).verContenido()+ "  <---");
+
+		buildMap();
 		
 	}
 	
 	private void buildHorizontalLine(int y, int startX, int endX){
+		//linea horizontal desde (startX,y) hasta (endX,y)
 		for (int i=startX; i < endX; i++){
 			map.getTile(i, y).agregarSolidBlock(new SolidBlock());
 		}		
 	}
 	
 	private void buildVerticalLine(int x, int startY, int endY){
+		//linea vertical desde (startX,y) hasta (endX,y)
 		for (int i=startY; i < endY; i++){
 			map.getTile(x, i).agregarSolidBlock(new SolidBlock());
 		}	
 	}
 	
-	private void buildWalls(){
+	private void buildMap(){
+		//bordes
 		buildHorizontalLine(0, 0, 15);
 		buildHorizontalLine(12, 0, 15);
 		buildVerticalLine(0,0,13);
 		buildVerticalLine(14,0,13);
+		//bloques rompibles
+		fillDestructibleBlocks(1, 1, 12, 10);
+		//irrompibles
+		intermitentBlocks(2, 2, 12, 10);
+		emptyBlocks();
 	}
 	
 	private void intermitentBlocks(int startX, int startY, int endX, int endY){
+		//bloques irrompibles en un cuadrado, intermitentes porque no estan juntos
 		for (int i=startX; i < (endX+2); i=i+2){
 			for (int j = startY; j < (endY+2); j=j+2){
 				map.getTile(i, j).agregarSolidBlock(new SolidBlock());
 			}
 		}
+	}
+	
+	public void fillDestructibleBlocks(int startX, int startY, int endX, int endY){
+		//llena un cuadrado debloques rompibles
+		for (int i=startX; i < (endX+2); i=i+1){
+			for (int j = startY; j < (endY+2); j=j+1){
+				map.getTile(i, j).agregarDestructibleBlock(new DestructibleBlock());
+			}
+		}
+	}
+	
+	public void emptyBlocks(){
+		map.getTile(1,1).agregarEmptyBlock(new EmptyBlock());
+		map.getTile(2,1).agregarEmptyBlock(new EmptyBlock());
+		map.getTile(1,2).agregarEmptyBlock(new EmptyBlock());
+		
+		map.getTile(12,1).agregarEmptyBlock(new EmptyBlock());
+		map.getTile(13,1).agregarEmptyBlock(new EmptyBlock());
+		map.getTile(13,2).agregarEmptyBlock(new EmptyBlock());
+		
+		map.getTile(1,10).agregarEmptyBlock(new EmptyBlock());
+		map.getTile(1,11).agregarEmptyBlock(new EmptyBlock());
+		map.getTile(2,11).agregarEmptyBlock(new EmptyBlock());
+		
+		map.getTile(12,11).agregarEmptyBlock(new EmptyBlock());
+		map.getTile(13,10).agregarEmptyBlock(new EmptyBlock());
+		map.getTile(13,11).agregarEmptyBlock(new EmptyBlock());
+		
+	}
+	
+	public TileMap getTileMap(){
+		return this.map;
 	}
 
 //	private void buildWAll(boolean vertical, int x, int y, int length) {

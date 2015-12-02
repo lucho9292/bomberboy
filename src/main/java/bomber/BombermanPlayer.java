@@ -18,6 +18,8 @@ public class BombermanPlayer extends RichGameComponent {
 		// crear una bomba en la posicion actual
 		Bomba b = new Bomba(this.getX(), this.getY());
 		this.getScene().addComponent(b);
+		//this.getScene().getTileMap().getTile((int)this.getX()*w,this.getY()*h).agregarBomba(b);
+		//b.explotar();
 	}
 
 	@Override
