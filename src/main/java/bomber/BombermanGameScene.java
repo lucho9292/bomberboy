@@ -6,11 +6,16 @@ import com.uqbar.vainilla.GameScene;
 
 public class BombermanGameScene extends GameScene {//TODO ponerle amor para que sea mas elegante
 	
+	private TileMap map;
+	
 	public BombermanGameScene() {
 		addComponent(new BombermanPlayer(Color.RED));
-		buildFieldLimits();
-		buildFieldObstacle();
-		addComponent(new DestructibleBlock(300, 300));
+//		buildFieldLimits();
+//		buildFieldObstacle();
+//		addComponent(new DestructibleBlock(742, 552));
+		map = new TileMap(15,13);
+		map.addAllTiles(this, 15, 13);
+		map.getTile(1,1).agregarSolidBlock(new SolidBlock(23,34));
 		
 	}
 
@@ -37,6 +42,7 @@ public class BombermanGameScene extends GameScene {//TODO ponerle amor para que 
 			aux = y;
 			for (int i = 0; i < length; i++) {
 				addComponent(new SolidBlock(x, aux));
+				//(map[x][aux]).agregarSolidBlock(new SolidBlock(x, aux));
 				aux += 92;
 			}
 		} else {
