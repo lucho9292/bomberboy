@@ -9,7 +9,8 @@ import java.awt.Color;
 
 public class BombermanPlayer extends RichGameComponent {
 	
-	private int bombs = 1;
+	private int bombs = 1; //la cantidad de bombas
+	private int power = 1; //el poder de las bombas
 
 	public BombermanPlayer(Color c) {
 		this.setAppearance(new Rectangle(c, w, h));
@@ -30,6 +31,10 @@ public class BombermanPlayer extends RichGameComponent {
 	
 	public void bombaDestruida() {
 		this.bombs = bombs + 1;
+	}
+	
+	public int getPower(){
+		return this.power;
 	}
 
 	@Override
@@ -54,18 +59,18 @@ public class BombermanPlayer extends RichGameComponent {
 	public void checkKeys(DeltaState state) {
 		// speed.x1 = 0
 		if (state.isKeyBeingHold(Key.LEFT)) {
-			this.setX(this.getX()-0.2);
+			this.setX(this.getX()-0.25);
 		}
 		if (state.isKeyBeingHold(Key.RIGHT)) {
-			this.setX(this.getX()+0.2);
+			this.setX(this.getX()+0.25);
 		}
 
 		if (state.isKeyBeingHold(Key.UP)) {
-			this.setY(this.getY()-0.2);
+			this.setY(this.getY()-0.25);
 		}
 
 		if (state.isKeyBeingHold(Key.DOWN)) {
-			this.setY(this.getY()+0.2);
+			this.setY(this.getY()+0.25);
 		}
 		if (state.isKeyBeingHold(Key.A)) {
 			 this.dropBomb(state);
