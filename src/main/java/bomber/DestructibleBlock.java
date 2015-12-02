@@ -8,10 +8,10 @@ import com.uqbar.vainilla.appearances.Rectangle;
 
 public class DestructibleBlock extends RichGameComponent{
 	
-	public DestructibleBlock(int x, int y){
+	public DestructibleBlock(){
 		this.setAppearance(new Rectangle(Color.GRAY, w, h));
-		this.setX(x);
-		this.setY(y);
+//		this.setX(x);
+//		this.setY(y);
 	}
 	
 	@Override

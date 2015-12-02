@@ -1,8 +1,6 @@
 package bomber;
 
 
-import java.awt.Graphics2D;
-
 import com.uqbar.vainilla.GameComponent;
 
 public class Tile extends RichGameComponent {
@@ -12,7 +10,6 @@ public class Tile extends RichGameComponent {
 
 	
 	public Tile(double x, double y){
-		//this.setAppearance(new TileAppearrence<Tile>());
 		this.setX(x*w);
 		this.setY(y*h);
 		
