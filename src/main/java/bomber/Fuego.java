@@ -27,8 +27,8 @@ public class Fuego extends RichGameComponent{
 	public void destruirTiles(DeltaState ds){
 		int x = (int) Math.round(this.getX());
 		int y = (int) Math.round(this.getY());
-		System.out.println("coords: " + this.getX() + "@" + this.getY());
-		System.out.println("round:  " + x + "@" + y);
+//		System.out.println("coords: " + this.getX() + "@" + this.getY());
+//		System.out.println("round:  " + x + "@" + y);
 		this.tile = this.getScene().getTileMap().getTile(x/w,y/h);
 		//this.getTile().explode(x/w,y/h);
 		this.tile.agregarEmptyBlock(new EmptyBlock());

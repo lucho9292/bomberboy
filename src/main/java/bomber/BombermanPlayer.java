@@ -8,6 +8,8 @@ import com.uqbar.vainilla.events.constants.Key;
 import java.awt.Color;
 
 public class BombermanPlayer extends RichGameComponent {
+	
+	private int bombs = 1;
 
 	public BombermanPlayer(Color c) {
 		this.setAppearance(new Rectangle(c, w, h));
@@ -16,10 +18,18 @@ public class BombermanPlayer extends RichGameComponent {
 
 	public void dropBomb(DeltaState ds) {
 		// crear una bomba en la posicion actual
-		Bomba b = new Bomba(this.getX(), this.getY());
+		if (this.bombs >= 1){
+		Bomba b = new Bomba(this, this.getX(), this.getY());
 		this.getScene().addComponent(b);
-		//this.getScene().getTileMap().getTile((int)this.getX()*w,this.getY()*h).agregarBomba(b);
-		//b.explotar();
+		}
+	}
+	
+	public void bombaCreada(){
+		this.bombs = bombs - 1;
+	}
+	
+	public void bombaDestruida() {
+		this.bombs = bombs + 1;
 	}
 
 	@Override

@@ -7,15 +7,18 @@ import com.uqbar.vainilla.appearances.Circle;
 
 public class Bomba extends RichGameComponent {
 	
+	private BombermanPlayer player;
+	
 	private double elapsed = 0.0;
 	private double countdown = 1.5;
 	
-	public Bomba(double x, double y){
+	public Bomba(BombermanPlayer pj, double x, double y){
 		this.setX(x);
 		this.setY(y);
+		this.player = pj;
 		this.setAppearance(new Circle(Color.BLACK, 28));
+		this.player.bombaCreada();
 		//la bomba conoce al jugador
-		//this.explotar();
 	}
 	
 	public Bomba(){
@@ -26,6 +29,7 @@ public class Bomba extends RichGameComponent {
 		
 		this.spawnFire();
 		this.destroy();
+		this.player.bombaDestruida();
 		//avisar al jugador que exploto
 		//this.spawnFire(this.x,this.y)
 	}
