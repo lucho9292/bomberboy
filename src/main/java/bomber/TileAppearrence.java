@@ -2,7 +2,6 @@ package bomber;
 
 import com.uqbar.vainilla.GameComponent;
 import com.uqbar.vainilla.appearances.Appearance;
-import com.uqbar.vainilla.appearances.SimpleAppearance;
 import java.awt.Graphics2D;
 import java.awt.Color;
 

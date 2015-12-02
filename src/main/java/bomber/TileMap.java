@@ -8,7 +8,7 @@ public class TileMap {
 		map = new Tile[xSize][ySize];
 		for(int i=0; i<xSize; i++){
 			for (int j=0; j<ySize; j++){
-				map[i][j] = new Tile(false,i,j);
+				map[i][j] = new Tile(i,j);
 			}
 		}
 	}
@@ -16,7 +16,7 @@ public class TileMap {
 	public void addAllTiles(BombermanGameScene scene, int xSize, int ySize) {
 		for (int i = 0; i < xSize; i++){
 			for (int j = 0; j < ySize; j++){
-				scene.addComponent(map[i][j]);;
+				scene.addComponent(map[i][j]);
 			}
 		}
 	}

@@ -3,11 +3,9 @@ package bomber;
 import com.uqbar.vainilla.DeltaState;
 //import com.uqbar.vainilla.appearances.Sprite;
 import com.uqbar.vainilla.appearances.Rectangle;
-import com.uqbar.vainilla.colissions.CollisionDetector;
 import com.uqbar.vainilla.events.constants.Key;
 
 import java.awt.Color;
-import java.util.ArrayList;
 
 public class BombermanPlayer extends RichGameComponent {
 
