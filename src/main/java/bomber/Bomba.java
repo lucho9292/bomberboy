@@ -13,8 +13,8 @@ public class Bomba extends RichGameComponent {
 	private double countdown = 1.5;
 	
 	public Bomba(Player pj, double x, double y){
-		this.setX(x);
-		this.setY(y);
+		this.setX(x-14);
+		this.setY(y-14);//TODO arreglar este hardcodeo
 		this.player = pj;
 		this.setAppearance(new Circle(Color.BLACK, 28));
 		//this.player.bombaCreada();

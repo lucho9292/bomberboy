@@ -26,7 +26,7 @@ public class Player extends RichGameComponent {
 		// crear una bomba en la posicion actual
 		if (this.bombs >= 1) {
 			this.bombs--;
-			Bomba b = new Bomba(this, this.getX(), this.getY());
+			Bomba b = new Bomba(this, calculateTileCenter()[0], calculateTileCenter()[1]);
 			this.getScene().addComponent(b);
 		}
 	}
@@ -54,7 +54,7 @@ public class Player extends RichGameComponent {
 	// de juego
 	public boolean isAllignedTo(double cp, int i) {
 		return Math.abs((cp % (i * 2)) - i) < 1;// esto es por problemas de
-												// presicion, sino uso ==
+													// presicion, sino uso ==
 	}
 
 	// establece los limites del campo de juego
@@ -73,19 +73,17 @@ public class Player extends RichGameComponent {
 	public void checkKeys(DeltaState state) {
 		double x = this.getX();
 		double y = this.getY();
-		// speed.x1 = 0
 		if (state.isKeyBeingHold(Key.LEFT) && isAllignedTo(this.getY(), h) && inFieldLimit()) {
-
 			this.setX(this.getX() - speed);
-			fixPosition(x, y);
-		}
-		if (state.isKeyBeingHold(Key.RIGHT) && isAllignedTo(this.getY(), h) && inFieldLimit()) {
-			this.setX(this.getX() + speed);
 			fixPosition(x, y);
 		}
 
 		if (state.isKeyBeingHold(Key.UP) && isAllignedTo(this.getX(), w) && inFieldLimit()) {
 			this.setY(this.getY() - speed);
+			fixPosition(x, y);
+		}
+		if (state.isKeyBeingHold(Key.RIGHT) && isAllignedTo(this.getY(), h) && inFieldLimit()) {
+			this.setX(this.getX() + speed);
 			fixPosition(x, y);
 		}
 
@@ -95,14 +93,14 @@ public class Player extends RichGameComponent {
 		}
 		if (state.isKeyPressed(Key.A)) {
 			this.dropBomb(state);
-			
+
 		}
 	}
 
 	public double getSpeed() {
 		return speed;
 	}
-	
+
 	public void setSpeed(double speed) {
 		this.speed = speed;
 	}
