@@ -19,7 +19,15 @@ public class DestructibleBlock extends RichGameComponent{
 		super.update(deltaState);
 	}
 	
-	public void explode(int x,int y){
+	public void explode(int x,int y){//FIXME este metodo esta al pedo!!
 		this.getScene().getTileMap().getTile(x, y).agregarEmptyBlock(new EmptyBlock());
 	}
+	
+	@Override
+	public void destroy() {
+		//dropPowerup();
+		super.destroy();
+	}
+	
+	//TODO dropPowerup()
 }

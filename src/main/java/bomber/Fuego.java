@@ -3,6 +3,7 @@ package bomber;
 import java.awt.Color;
 
 import com.uqbar.vainilla.DeltaState;
+import com.uqbar.vainilla.GameComponent;
 import com.uqbar.vainilla.appearances.Circle;
 
 public class Fuego extends RichGameComponent {
@@ -28,6 +29,8 @@ public class Fuego extends RichGameComponent {
 		int x = (int) Math.round(this.getX());
 		int y = (int) Math.round(this.getY());
 		this.tile = this.getScene().getTileMap().getTile(x / w, y / h);
+		GameComponent<BombermanGameScene> bgc = tile.verContenido();
+		bgc.destroy();
 		this.tile.agregarEmptyBlock(new EmptyBlock());
 	}
 

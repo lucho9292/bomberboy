@@ -14,7 +14,7 @@ public class Player extends RichGameComponent {
 	private int power; // el poder de las bombas
 
 	public Player(Color c) {
-		this.speed = 0.3;
+		this.speed = 0.5;
 		this.bombs = 1;
 		this.power = 1;
 		this.setZ(10);
