@@ -11,8 +11,8 @@ public class Fuego extends RichGameComponent {
 	private Tile tile;
 
 	public Fuego(double x, double y) {
-		this.setX(x);
-		this.setY(y);
+		this.setX(x+4);
+		this.setY(y+4);
 		this.setAppearance(new Circle(Color.RED, 20));
 	}
 
