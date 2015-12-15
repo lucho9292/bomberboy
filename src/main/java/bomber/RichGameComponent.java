@@ -46,4 +46,11 @@ public abstract class RichGameComponent extends GameComponent<BombermanGameScene
 		return false;
 	}
 	
+	public int calculatePositionXInTilemap(int x){
+		return (int)(x / w);
+	}
+	
+	public int calculatePositionYInTilemap(int y){
+		return (int)(y / h);
+	}
 }

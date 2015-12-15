@@ -32,6 +32,12 @@ public class Fuego extends RichGameComponent {
 		GameComponent<BombermanGameScene> bgc = tile.verContenido();
 		bgc.destroy();
 		this.tile.agregarEmptyBlock(new EmptyBlock());
+		if (this.tile.contenido instanceof DestructibleBlock)
+			{this.tile.agregarEmptyBlock(new EmptyBlock());}
+		//if (this.tile.contenido instanceof EmptyBlock)
+			//{((Bomba) this.tile.contenido).explotar();}
+			//{System.out.println("se bugeo todo la concha de mi vieja");}
+			
 	}
 
 	public void update(DeltaState ds) {

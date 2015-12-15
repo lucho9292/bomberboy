@@ -9,14 +9,14 @@ public class BombermanGameScene extends GameScene {//TODO ponerle amor para que 
 	private TileMap map;
 	
 	public BombermanGameScene() {
-		addComponent(new Player(Color.RED));
+		//addComponent(new Player(Color.RED));
 //		buildFieldLimits();
 //		buildFieldObstacle();
 //		addComponent(new DestructibleBlock(742, 552));
 		map = new TileMap(15,13);
 		map.addAllTiles(this, 15, 13);
-
 		buildMap();
+		addComponent(new Player(Color.RED, map));
 		
 	}
 	
