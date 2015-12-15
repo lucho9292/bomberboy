@@ -4,30 +4,39 @@ import java.awt.Color;
 
 import com.uqbar.vainilla.DeltaState;
 import com.uqbar.vainilla.appearances.Rectangle;
+import com.uqbar.vainilla.colissions.CollisionDetector;
 //import com.uqbar.vainilla.appearances.Rectangle;
 
-public class DestructibleBlock extends RichGameComponent{
-	
-	public DestructibleBlock(){
+public class DestructibleBlock extends RichGameComponent {
+
+	boolean b = true;
+
+	public DestructibleBlock() {
 		this.setAppearance(new Rectangle(Color.GRAY, w, h));
-//		this.setX(x);
-//		this.setY(y);
+		// this.setX(x);
+		// this.setY(y);
 	}
-	
+
 	@Override
 	public void update(DeltaState deltaState) {
 		super.update(deltaState);
 	}
-	
-	public void explode(int x,int y){//FIXME este metodo esta al pedo!!
+
+	public void explode(int x, int y) {// FIXME este metodo esta al pedo!!
 		this.getScene().getTileMap().getTile(x, y).agregarEmptyBlock(new EmptyBlock());
 	}
-	
+
+	@Override
+	public boolean hasCollidesTo(RichGameComponent p) {
+		return !CollisionDetector.INSTANCE.collidesRectAgainstRect(this.getX(), this.getY(), w, h, p.getX(), p.getY(), w,
+				h);
+	}
+
 	@Override
 	public void destroy() {
-		//dropPowerup();
+		// dropPowerup();
 		super.destroy();
 	}
-	
-	//TODO dropPowerup()
+
+	// TODO dropPowerup()
 }

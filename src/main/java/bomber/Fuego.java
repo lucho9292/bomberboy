@@ -25,7 +25,7 @@ public class Fuego extends RichGameComponent {
 		this.setAppearance(new Circle(Color.RED, 20));
 	}
 
-	public void destruirTiles(DeltaState ds) {
+	public void destruirTile() {
 		int x = (int) Math.round(this.getX());
 		int y = (int) Math.round(this.getY());
 		this.tile = this.getScene().getTileMap().getTile(x / w, y / h);
@@ -37,7 +37,7 @@ public class Fuego extends RichGameComponent {
 	public void update(DeltaState ds) {
 		this.elapsed += ds.getDelta();
 		if (elapsed >= countdown) {
-			this.destruirTiles(ds);
+			this.destruirTile();
 			this.destroy();
 		}
 	}

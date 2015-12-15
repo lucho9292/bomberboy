@@ -27,6 +27,7 @@ public class Player extends RichGameComponent {
 		if (this.bombs >= 1) {
 			this.bombs--;
 			Bomba b = new Bomba(this, calculateTileCenter()[0], calculateTileCenter()[1]);
+			// TODO agregar la bomba al tilemap
 			this.getScene().addComponent(b);
 		}
 	}
@@ -43,10 +44,17 @@ public class Player extends RichGameComponent {
 
 	@Override
 	public void update(DeltaState deltaState) {
+		double beforeXPos = getX();
+		double beforeYPos = getY();
+		RichGameComponent[] r = getAdjacentRGC();
 		checkKeys(deltaState);
-		// int beforeXPos = (int) getX();
-		// int beforeYPos = (int) getY();
-		//
+		for (int i = 0; i < r.length; i++) {
+			if (r[i].hasCollidesTo(this)) {
+				System.out.println(i);
+				setX(beforeXPos);
+				setY(beforeYPos);
+			}
+		}
 
 	}
 
@@ -54,12 +62,12 @@ public class Player extends RichGameComponent {
 	// de juego
 	public boolean isAllignedTo(double cp, int i) {
 		return Math.abs((cp % (i * 2)) - i) < 1;// esto es por problemas de
-													// presicion, sino uso ==
+												// presicion, sino uso ==
 	}
 
 	// establece los limites del campo de juego
 	public boolean inFieldLimit() {
-		return 53 <= this.getX() && this.getX() <= 690 && 46 <= this.getY() && this.getY() <= 507;
+		return 53 <= this.getX() && this.getX() <= 689 && 46 <= this.getY() && this.getY() <= 506;
 	}
 
 	// corrige la posicion del jugador por si se pasa del borde
@@ -68,6 +76,16 @@ public class Player extends RichGameComponent {
 			this.setX(x);
 			this.setY(y);
 		}
+	}
+
+	public RichGameComponent[] getAdjacentRGC() {
+		RichGameComponent[] ret = new RichGameComponent[4];
+		ret[0] = getElementFomTileMap((int) (getX() / w) - 1, (int) getY() / h).verContenido();
+		ret[1] = getElementFomTileMap((int) getX() / w, (int) getY() / h - 1).verContenido();
+		ret[2] = getElementFomTileMap((int) getX() / w + 1, (int) getY() / h).verContenido();
+		ret[3] = getElementFomTileMap((int) getX() / w, (int) getY() / h + 1).verContenido();
+
+		return ret;
 	}
 
 	public void checkKeys(DeltaState state) {
@@ -93,7 +111,6 @@ public class Player extends RichGameComponent {
 		}
 		if (state.isKeyPressed(Key.A)) {
 			this.dropBomb(state);
-
 		}
 	}
 

@@ -24,18 +24,26 @@ public abstract class RichGameComponent extends GameComponent<BombermanGameScene
 	 * calcula el tile al que pertenece el rectangulo
 	 * @return int[tile x, tile y]
 	 */
-	private int[] getTileH(){
+	public int[] getTileH(){
 		int[] r = getCenter();
 		r[0] = r[0]/w;
 		r[1] = r[1]/h;
 		return r;
 	}
 	
+	public Tile getElementFomTileMap(int i, int j) {
+		return getScene().getTileMap().getTile(i,j);
+	}
+	
 	public int[] calculateTileCenter(){
 		int[] t = getTileH();
 		t[0] = t[0]*w + (w/2);
 		t[1] = t[1]*h + (h/2);
-		return t;
-		
+		return t;		
 	}
+	
+	public boolean hasCollidesTo(RichGameComponent rgc){
+		return false;
+	}
+	
 }

@@ -33,7 +33,7 @@ public class Bomba extends RichGameComponent {
 		Fuego f1 = new Fuego(this.getX(),this.getY());
 		this.getScene().addComponent(f1);
 		
-		for (int i=0; i<=power; i++){
+		for (int i=1; i<=power; i++){
 			Fuego f2 = new Fuego(x,y+(i*h));
 			this.getScene().addComponent(f2);
 			Fuego f3 = new Fuego(x,y-(i*h));
