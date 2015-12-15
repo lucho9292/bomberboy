@@ -49,15 +49,31 @@ public class Bomba extends RichGameComponent {
 		Fuego f1 = new Fuego(this.getX(),this.getY());
 		this.getScene().addComponent(f1);
 		
-		for (int i=0; i<=power; i++){
-			Fuego f2 = new Fuego(x,y+(i*h));
-			this.getScene().addComponent(f2);
-			Fuego f3 = new Fuego(x,y-(i*h));
-			this.getScene().addComponent(f3);
-			Fuego f4 = new Fuego(x+(i*h),y);
-			this.getScene().addComponent(f4);
-			Fuego f5 = new Fuego(x-(i*h),y);
-			this.getScene().addComponent(f5);
+		int xtile = calculatePositionXInTilemap(x);
+		int ytile = calculatePositionYInTilemap(y);
+		System.out.println("Se esta tratando de spawnear fuego en base al tile: " + xtile + "@" + ytile);
+		
+		for (int i=1; i<=power; i++){
+			
+			System.out.println("El primer fuego en: "  + xtile + "@" + calculatePositionYInTilemap(y+(i*h)) );
+			if ( ! (this.player.map.getTile(xtile,calculatePositionYInTilemap(y+(i*h))).contenido instanceof SolidBlock))
+				{Fuego f2 = new Fuego(x,y+(i*h));
+				this.getScene().addComponent(f2);}
+			
+			System.out.println("El segundo fuego en: "  + xtile + "@" + calculatePositionYInTilemap(y-(i*h)) );
+			if ( ! (this.player.map.getTile(xtile,calculatePositionYInTilemap(y-(i*h))).contenido instanceof SolidBlock))
+				{Fuego f3 = new Fuego(x,y-(i*h));
+				this.getScene().addComponent(f3);}
+			
+			System.out.println("El tercer fuego en: "  + calculatePositionXInTilemap(x+(i*h)) + "@"  + ytile);
+			if ( ! (this.player.map.getTile(calculatePositionXInTilemap(x+(i*h)),ytile).contenido instanceof SolidBlock))	
+				{Fuego f4 = new Fuego(x+(i*h),y);
+				this.getScene().addComponent(f4);}
+			
+			System.out.println("El primer fuego en: "  + calculatePositionXInTilemap(x-(i*h)) + "@" + ytile );
+			if ( ! (this.player.map.getTile(calculatePositionXInTilemap(x-(i*h)),ytile).contenido instanceof SolidBlock))
+				{Fuego f5 = new Fuego(x-(i*h),y);
+				this.getScene().addComponent(f5);}
 		}
 	}
 	

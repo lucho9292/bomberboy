@@ -9,25 +9,41 @@ import java.awt.Color;
 
 public class Player extends RichGameComponent {
 
+	TileMap map;
 	double speed;
 	public int bombs; // la cantidad de bombas
 	private int power; // el poder de las bombas
 
 	public Player(Color c) {
 		this.speed = 0.3;
-		this.bombs = 1;
+		this.bombs = 3;
 		this.power = 1;
 		this.setZ(10);
 		this.setAppearance(new Rectangle(c, w, h));
 		// this.setAppearance(Sprite.fromImage("\\png\\ff3warrior.png").scale(0.8));
 	}
-
+	
+	public Player(Color c, TileMap map) {
+		this.map = map;
+		this.speed = 0.3;
+		this.bombs = 3;
+		this.power = 1;
+		this.setZ(10);
+		this.setAppearance(new Rectangle(c, w, h));
+		// this.setAppearance(Sprite.fromImage("\\png\\ff3warrior.png").scale(0.8));
+	}
+	
 	public void dropBomb(DeltaState ds) {
 		// crear una bomba en la posicion actual
 		if (this.bombs >= 1) {
 			this.bombs--;
 			Bomba b = new Bomba(this, calculateTileCenter()[0], calculateTileCenter()[1]);
+			int x = (int)(b.getX() / 53);
+			int y = (int)(b.getY() / 46);
+			//la posicion actual es necesariamente vacia
+			map.getTile(x, y).contenido = b;
 			this.getScene().addComponent(b);
+			System.out.println("se dropeao una bomba en : " + x + "@" + y);		
 		}
 	}
 

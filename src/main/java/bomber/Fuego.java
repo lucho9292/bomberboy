@@ -28,7 +28,12 @@ public class Fuego extends RichGameComponent {
 		int x = (int) Math.round(this.getX());
 		int y = (int) Math.round(this.getY());
 		this.tile = this.getScene().getTileMap().getTile(x / w, y / h);
-		this.tile.agregarEmptyBlock(new EmptyBlock());
+		if (this.tile.contenido instanceof DestructibleBlock)
+			{this.tile.agregarEmptyBlock(new EmptyBlock());}
+		//if (this.tile.contenido instanceof EmptyBlock)
+			//{((Bomba) this.tile.contenido).explotar();}
+			//{System.out.println("se bugeo todo la concha de mi vieja");}
+			
 	}
 
 	public void update(DeltaState ds) {
