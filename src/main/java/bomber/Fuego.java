@@ -36,7 +36,6 @@ public class Fuego extends RichGameComponent {
 			{this.tile.agregarEmptyBlock(new EmptyBlock());}
 		//if (this.tile.contenido instanceof EmptyBlock)
 			//{((Bomba) this.tile.contenido).explotar();}
-			//{System.out.println("se bugeo todo la concha de mi vieja");}
 			
 	}
 

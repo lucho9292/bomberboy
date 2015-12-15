@@ -27,7 +27,7 @@ public class Player extends RichGameComponent {
 		this.map = map;
 		this.speed = 0.3;
 		this.bombs = 3;
-		this.power = 1;
+		this.power = 5;
 		this.setZ(10);
 		this.setAppearance(new Rectangle(c, w, h));
 		// this.setAppearance(Sprite.fromImage("\\png\\ff3warrior.png").scale(0.8));

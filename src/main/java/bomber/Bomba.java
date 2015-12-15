@@ -48,27 +48,39 @@ public class Bomba extends RichGameComponent {
 		
 		for (int i=1; i<=power; i++){
 			
-			System.out.println("El primer fuego en: "  + xtile + "@" + calculatePositionYInTilemap(y+(i*h)) );
-			if ( ! (this.player.map.getTile(xtile,calculatePositionYInTilemap(y+(i*h))).contenido instanceof SolidBlock))
-				{Fuego f2 = new Fuego(x,y+(i*h));
-				this.getScene().addComponent(f2);}
 			
-			System.out.println("El segundo fuego en: "  + xtile + "@" + calculatePositionYInTilemap(y-(i*h)) );
-			if ( ! (this.player.map.getTile(xtile,calculatePositionYInTilemap(y-(i*h))).contenido instanceof SolidBlock))
-				{Fuego f3 = new Fuego(x,y-(i*h));
-				this.getScene().addComponent(f3);}
+			if (calculatePositionYInTilemap(y+(i*h)) < 12){
+				if ( ! (this.player.map.getTile(xtile,calculatePositionYInTilemap(y+(i*h))).contenido instanceof SolidBlock))
+					{System.out.println("El primer fuego en: "  + xtile + "@" + calculatePositionYInTilemap(y+(i*h)) );
+					Fuego f2 = new Fuego(x,y+(i*h));
+					this.getScene().addComponent(f2);}
+			}
 			
-			System.out.println("El tercer fuego en: "  + calculatePositionXInTilemap(x+(i*h)) + "@"  + ytile);
-			if ( ! (this.player.map.getTile(calculatePositionXInTilemap(x+(i*h)),ytile).contenido instanceof SolidBlock))	
-				{Fuego f4 = new Fuego(x+(i*h),y);
-				this.getScene().addComponent(f4);}
 			
-			System.out.println("El primer fuego en: "  + calculatePositionXInTilemap(x-(i*h)) + "@" + ytile );
-			if ( ! (this.player.map.getTile(calculatePositionXInTilemap(x-(i*h)),ytile).contenido instanceof SolidBlock))
-				{Fuego f5 = new Fuego(x-(i*h),y);
+			if (calculatePositionYInTilemap(y-(i*h)) > 0){
+				if ( ! (this.player.map.getTile(xtile,calculatePositionYInTilemap(y-(i*h))).contenido instanceof SolidBlock))
+					{System.out.println("El segundo fuego en: "  + xtile + "@" + calculatePositionYInTilemap(y-(i*h)) );
+					Fuego f3 = new Fuego(x,y-(i*h));
+					this.getScene().addComponent(f3);}
+			}
+			
+			
+			if (calculatePositionXInTilemap(x+(i*h)) < 14 ){
+				if ( ! (this.player.map.getTile(calculatePositionXInTilemap(x+(i*h)),ytile).contenido instanceof SolidBlock))	
+					{System.out.println("El tercer fuego en: "  + calculatePositionXInTilemap(x+(i*h)) + "@"  + ytile);
+					Fuego f4 = new Fuego(x+(i*h),y);
+					this.getScene().addComponent(f4);}
+			}
+			
+			
+			if (calculatePositionXInTilemap(x-(i*h)) > 0){
+				if ( ! (this.player.map.getTile(calculatePositionXInTilemap(x-(i*h)),ytile).contenido instanceof SolidBlock))
+				{System.out.println("El primer fuego en: "  + calculatePositionXInTilemap(x-(i*h)) + "@" + ytile );
+				Fuego f5 = new Fuego(x-(i*h),y);
 				this.getScene().addComponent(f5);}
+			}
 		}
-	}
+}
 	
 	
 	
