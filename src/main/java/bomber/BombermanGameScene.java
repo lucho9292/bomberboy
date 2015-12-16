@@ -60,7 +60,7 @@ public class BombermanGameScene extends GameScene {//TODO ponerle amor para que 
 		//llena un cuadrado debloques rompibles
 		for (int i=startX; i < (endX+2); i=i+1){
 			for (int j = startY; j < (endY+2); j=j+1){
-				map.getTile(i, j).agregarDestructibleBlock(new DestructibleBlock());
+				map.getTile(i, j).agregarDestructibleBlock(new DestructibleBlock(i,j));
 			}
 		}
 	}

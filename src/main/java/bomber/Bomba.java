@@ -23,7 +23,7 @@ public class Bomba extends RichGameComponent {
 		
 		this.spawnFire(player.getPower());
 		this.destroy();
-		player.bombs++;
+		this.player.bombs++;
 	}
 	
 	public void spawnFire(int power){

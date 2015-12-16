@@ -10,11 +10,19 @@ import com.uqbar.vainilla.colissions.CollisionDetector;
 public class DestructibleBlock extends RichGameComponent {
 
 	boolean b = true;
+	public int tileX;
+	public int tileY;
 
 	public DestructibleBlock() {
 		this.setAppearance(new Rectangle(Color.GRAY, w, h));
 		// this.setX(x);
 		// this.setY(y);
+	}
+	
+	public DestructibleBlock(int x, int y){
+		this.setAppearance(new Rectangle(Color.GRAY, w, h));
+		this.tileX = x;
+		this.tileY = y;
 	}
 
 	@Override
